@@ -1,1 +1,192 @@
 /* Add your CSS here */
+/* Center the header content, including the Intel logo */
+header div {
+	text-align: center; /* Center all content in the header */
+}
+
+/* Blue bar at the top of the page with centered Intel logo */
+.top-bar {
+  width: 100%;                /* Stretch across the page */
+  height: 40px;               /* Height of the bar */
+  background-color: #0071c5;  /* Intel blue color */
+  display: flex;              /* Use flexbox to center content */
+  align-items: center;        /* Center vertically */
+  justify-content: center;    /* Center horizontally */
+}
+
+/* Intel logo inside the blue bar */
+.top-bar img {
+  height: 28px;               /* Make the logo fit nicely in the bar */
+  width: auto;                /* Keep aspect ratio */
+}
+
+/* Remove header img centering and sizing, since logo is now in .top-bar */
+header img {
+  display: none;
+}
+
+/* Center all main content sections */
+body {
+	text-align: center; /* Center all text and block elements */
+	/* Reduce space above the entire page for a tighter layout */
+}
+
+/* Timeline cards container: show 4 smaller cards at a time, scroll horizontally */
+/* Center the timeline horizontally on the page */
+.timeline-cards {
+  display: flex; /* Arrange cards in a row */
+  flex-direction: row; /* Cards go left to right */
+  flex-wrap: nowrap; /* Do not wrap to next line */
+  overflow-x: auto; /* Allow horizontal scrolling if there are more than 3 cards */
+  justify-content: flex-start; /* Align cards to the left */
+  gap: 16px; /* Space between cards */
+  margin-bottom: 24px; /* Space below the timeline section */
+  /* Set a fixed width so only 3 cards are visible at a time */
+  width: 832px; /* 4 cards * 192px + 3 gaps of 16px */
+  max-width: 100%; /* Responsive for smaller screens */
+  /* Add padding so cards don't touch the edges when scrolling */
+  padding-bottom: 8px;
+  margin-left: auto;  /* Center the timeline container */
+  margin-right: auto; /* Center the timeline container */
+}
+
+/* Each timeline card styling - allow cards to grow with content */
+.timeline-card {
+  width: 192px;      /* Smaller fixed width for each card */
+  padding: 8px;      /* Reduce padding to make cards shorter */
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #0071c5;
+  margin: 0;         /* Remove auto margin, handled by gap */
+  flex: 0 0 auto;    /* Prevent cards from shrinking or growing */
+  position: relative;/* Needed for hover effect */
+  min-height: 120px; /* Add minimum height for more space */
+  height: 180px;     /* Increase height so paragraph fits better */
+  transition: transform 0.2s ease; /* Smooth scaling effect when hovered */
+}
+
+/* Scale up the card a little when hovered */
+.timeline-card:hover {
+  transform: scale(1.05); /* Make the card slightly larger */
+}
+
+/* Hide paragraph text in timeline cards by default */
+.timeline-card p {
+  display: none; /* Hide the paragraph text */
+  opacity: 0;    /* Start fully transparent */
+  transition: opacity 0.5s ease; /* Slower fade-in transition */
+}
+
+/* Show paragraph text when hovering over a card */
+.timeline-card:hover p {
+  display: block; /* Show the paragraph text on hover */
+  opacity: 1;
+  border-radius: 6px;
+  padding: 4px;        /* Smaller padding for more space */
+  font-size: 13px;     /* Smaller font so text fits in the card */
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  z-index: 1;
+}
+
+/* Hide headings in timeline cards when hovering, so only the paragraph shows */
+.timeline-card:hover h2,
+.timeline-card:hover h3 {
+  display: none;
+}
+
+/* Hide horizontal scrollbar by default */
+.timeline-cards {
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+/* Show horizontal scrollbar on hover */
+.timeline-cards:hover {
+  scrollbar-width: thin; /* Show thin scrollbar in Firefox */
+  scrollbar-color: #888 #f9f9f9; /* Show colored scrollbar in Firefox */
+}
+
+/* For Chrome, Edge, and Safari: hide scrollbar by default */
+.timeline-cards::-webkit-scrollbar {
+  height: 0px; /* Hide scrollbar */
+}
+
+/* Show scrollbar on hover for Chrome, Edge, Safari */
+.timeline-cards:hover::-webkit-scrollbar {
+  height: 8px; /* Show scrollbar */
+}
+.timeline-cards:hover::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+.timeline-cards:hover::-webkit-scrollbar-track {
+  background: #f9f9f9;
+}
+
+/* Remove old section styles that center cards vertically */
+section {
+	display: block; /* No flexbox needed for section itself */
+	align-items: unset;
+}
+
+/* Use Montserrat font for the main title and timeline card headers */
+/* Remove bold styling from headers */
+.timeline-card h2,
+.timeline-card h3 {
+  font-family: 'Montserrat', Arial, sans-serif; /* Use Montserrat, fallback to Arial/sans-serif */
+  font-weight: normal; 
+  font-size: 20px;
+  text-align: center; /* Center the headers in the card */
+  color: #fff; /* White text for card titles */
+}
+
+/* Make timeline card paragraph text white */
+.timeline-card p,
+.timeline-card:hover p {
+  color: #fff; /* White text for card paragraphs */
+}
+
+/* Add more space above the time period (year) */
+.timeline-card h2 {
+  margin-top: 40px; /* Increased margin-top for time period headers */
+}
+
+h1 {
+  font-family: 'Montserrat', Arial, sans-serif; /* Use Montserrat, fallback to Arial/sans-serif */
+  font-weight: normal; 
+  font-size: 38px;
+  margin-top: 60px; /* Add space above the main title */
+  margin-bottom: 60px; /* Space below the main title */
+}
+
+/* Use Lexend font for all body text except headers */
+body, p, .timeline-card p {
+  font-family: 'Lexend', Arial, sans-serif; /* Use Lexend, fallback to Arial/sans-serif */
+  font-weight: normal;
+  margin-top: 40px; /* Add space above body text */
+  margin-bottom: 40px; /* Add space below body text */
+}
+
+/* Center all header text inside timeline cards for beginners */
+.timeline-card h1,
+.timeline-card h2,
+.timeline-card h3,
+.timeline-card h4,
+.timeline-card h5,
+.timeline-card h6 {
+  text-align: center; /* This centers any header inside a card */
+  font-family: 'Montserrat', Arial, sans-serif; /* Use Montserrat font */
+  font-weight: normal;
+  font-size: 20px; /* Make headers a bit larger */
+}
+
+/* Decrease margin-bottom for paragraphs in the 2006 and 2024 timeline cards */
+/* 2006 is the 5th card, 2024 is the 9th card in the timeline */
+.timeline-cards .timeline-card:nth-child(5) p,
+.timeline-cards .timeline-card:nth-child(9) p,
+.timeline-cards .timeline-card:nth-child(6) p {
+  margin-bottom: 10px; /* Less space below these paragraphs */
+}
